@@ -94,6 +94,9 @@ export class App {
       return;
     }
 
+    this.encryptedData = this.parseJsonSafely(this.encryptedData);
+    this.xEncoding = this.parseJsonSafely(this.xEncoding);
+
     // 1️⃣ Decrypt AES key with RSA
     const jsDecrypt = new JSEncrypt();
     jsDecrypt.setPrivateKey(this.requestType ? this.privateKey : this.portalPrivate);
@@ -109,15 +112,16 @@ export class App {
 
     // 2️⃣ Decrypt data using AES
     let decryptedData = this.decryptAES(decryptedBase64, aesKey);
+    this.decryptedJson = this.parseJsonSafely(decryptedData);
+  }
 
+  parseJsonSafely(value: string) {
     try {
-      this.decryptedJson = JSON.parse(decryptedData);
+      return JSON.parse(value);
     } catch (e) {
-      // If parsing fails, just use the raw string
-      this.decryptedJson = decryptedData;
-      console.error(e);
+      console.error('JSON parse failed:', e);
+      return value;
     }
-
   }
 
   decryptAES(encryptedData: string, secretKey: string): any {
