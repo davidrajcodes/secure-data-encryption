@@ -8,7 +8,8 @@
     "build": "ng build --configuration production",
     "deploy": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "serve:ssr:decryption": "node dist/decryption/server/server.mjs"
   },
   "dependencies": {
     "@angular/common": "^21.0.0",
@@ -16,8 +17,11 @@
     "@angular/core": "^21.0.0",
     "@angular/forms": "^21.0.0",
     "@angular/platform-browser": "^21.0.0",
+    "@angular/platform-server": "^21.0.0",
     "@angular/router": "^21.0.0",
+    "@angular/ssr": "^21.0.3",
     "crypto-js": "^4.2.0",
+    "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -25,6 +29,7 @@
     "@angular/build": "^21.0.3",
     "@angular/cli": "^21.0.3",
     "@angular/compiler-cli": "^21.0.0",
+    "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
     "typescript": "~5.9.2"
   }
