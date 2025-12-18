@@ -4,10 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:decryption": "node dist/decryption/server/server.mjs"
+    "build": "ng build --configuration production",
+    "deploy": "ng build --configuration production && cp src/_redirects dist/decryption/_redirects"
   },
   "prettier": {
     "printWidth": 100,
@@ -46,7 +44,6 @@
     "@types/crypto-js": "^4.2.2",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
-    "angular-cli-ghpages": "^2.0.3",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
