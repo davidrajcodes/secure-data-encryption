@@ -8,6 +8,11 @@
   "projects": {
     "decryption": {
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -22,35 +27,24 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public",
-                "output": "."
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              },
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "."
+                "input": "public"
               }
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
-              "baseHref": "/",
-              "outputHashing": "all",
-              "optimization": true,
-              "sourceMap": false
+              "baseHref": "/secure-data-encryption/",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                }
+              ],
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
@@ -70,6 +64,12 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
