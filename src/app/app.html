@@ -1,0 +1,36 @@
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Manual Decryption Viewer</h2>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="content">
+
+    <!-- LEFT : Inputs -->
+    <div class="left-panel">
+      <label>X-Encoding (RSA Encrypted AES Key)</label>
+      <textarea [(ngModel)]="xEncoding" rows="6" placeholder="Paste X-Encoding here..."></textarea>
+
+      <label>Encrypted Data (AES Base64)</label>
+      <textarea [(ngModel)]="encryptedData" rows="10" placeholder="Paste AES encrypted data here..."></textarea>
+
+      <label class="toggle">
+        <input type="checkbox" [(ngModel)]="requestType" />
+        Response from BE
+      </label>
+
+      <button class="decrypt-btn" (click)="decrypt()">Decrypt</button>
+    </div>
+
+    <!-- RIGHT : JSON Viewer -->
+    <div class="right-panel">
+      <h3>Decrypted JSON</h3>
+      <div class="json-scroll">
+        <ngx-json-viewer [json]="decryptedJson" [expanded]="true"></ngx-json-viewer>
+      </div>
+    </div>
+
+  </div>
+</div>

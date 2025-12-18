@@ -1,0 +1,90 @@
+.container {
+    // padding: 10px;
+    font-family: Arial, sans-serif;
+    background-color: lightyellow;
+    overflow: hidden;
+}
+textarea{
+    border-radius: 10px;
+}
+
+.header {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toggle {
+    color: red;
+    font-weight: 600;
+}
+
+.content {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 120px);
+}
+
+.left-panel {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.right-panel {
+    width: 60%;
+    background: #0d1117;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+/* Header stays fixed */
+.right-panel h3 {
+    margin: 0 0 10px 0;
+    color: #58a6ff;
+}
+
+/* JSON only scrolls */
+.json-scroll {
+    flex: 1;
+    /* takes remaining height */
+    overflow-y: auto;
+    /* vertical scroll only */
+    padding: 10px;
+    background: white;
+    border-radius: 4px;
+}
+
+.left-panel label {
+    font-weight: 600;
+    color: rgb(220, 81, 81);
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+    padding: 8px;
+    margin-top: 5px;
+    font-family: monospace;
+}
+
+button {
+    margin-top: 15px;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    background-color: lightsalmon;
+    border-radius: 10px;
+}
