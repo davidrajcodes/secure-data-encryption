@@ -22,7 +22,18 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "."
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "."
               }
             ],
             "styles": [
@@ -32,7 +43,9 @@
           "configurations": {
             "production": {
               "baseHref": "/",
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false
             },
             "development": {
               "optimization": false,
